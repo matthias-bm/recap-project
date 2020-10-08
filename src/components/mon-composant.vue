@@ -29,11 +29,26 @@
     </p>
     <p>{{ conversion }}</p>
     <h3 v-if="true">Inséré et visible sur le DOM</h3>
-    <h3 v-if="false">Pas sur le DOM</h3>-->
+    <h3 v-if="false">Pas sur le DOM</h3>
 
     <ul>
       <li v-for="number in numbers" :key="number">{{ number }}</li>
     </ul>
+
+  <div v-nom-directive>
+    Exemple directive
+  </div>
+
+  <div>
+    {{ 'jean dupont' | monFiltre }}
+  </div>
+  
+  <transition name="mon-animation" appear>
+    <div style="background: red; height: 200px; width: 200px;"></div>
+  </transition>-->
+
+  <form @submit.prevent="trySubmit">
+  </form>
 
   </div>
 </template>
@@ -42,12 +57,13 @@
   // import Vue from 'vue'
   // import _ from 'lodash'
   // import VueResource from 'vue-resource'
+  import axios from 'axios'
   // Vue.use(VueResource); 
 
   export default {
     name: 'mon-composant',
     data: () => ({
-      numbers: [1,2,3,4,5,6,7,8,9],
+      // numbers: [1,2,3,4,5,6,7,8,9],
       // euros: '',
       // taux: '',
       // conversion: 'Je ne peux pas vous donner une réponse avant que vous ne rentriez un nombre !',
@@ -62,6 +78,9 @@
       // number: 0
     }),
     methods: {
+      trySubmit() {
+        axios.post()
+      }
       // maMethode() {
       //   alert('Hello')
       // },
@@ -101,9 +120,29 @@
       //   this.getConversion()
       // }
     },
+    directives: {
+      // nomDirective: (el) => {
+      //   el.style.backgroundColor = 'red'
+      // }
+    },
+    filters: {
+      // monFiltre(valeur) {
+      //   return valeur.charAt(0).toUpperCase() + valeur.slice(1)
+      // }
+    }
   }
 </script>
 
 <style scoped>
+
+  .mon-animation-enter-active {
+    animation: fade-in .5s;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
 
 </style>
