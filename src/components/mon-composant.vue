@@ -45,10 +45,12 @@
   
   <transition name="mon-animation" appear>
     <div style="background: red; height: 200px; width: 200px;"></div>
-  </transition>-->
+  </transition>
 
   <form @submit.prevent="trySubmit">
-  </form>
+  </form>-->
+
+  <div>{{ todosLength }}</div>
 
   </div>
 </template>
@@ -57,8 +59,9 @@
   // import Vue from 'vue'
   // import _ from 'lodash'
   // import VueResource from 'vue-resource'
-  import axios from 'axios'
-  // Vue.use(VueResource); 
+  // import axios from 'axios'
+  // Vue.use(VueResource);
+  import {mapGetters} from 'vuex'
 
   export default {
     name: 'mon-composant',
@@ -78,9 +81,16 @@
       // number: 0
     }),
     methods: {
-      trySubmit() {
-        axios.post()
-      }
+      // changePage() {
+      //   this.$router.go(1) // naviguer vers l'URL suivante
+      //   this.$router.go(-1) // naviguer vers l'URL précédente
+      //   this.$router.go(-2) // naviguer deux pages en arrière
+      // },
+      // trySubmit() {
+      //   axios.post('URL_BDD.fr', parametre, options)
+      //   .then(res => console.log(res)) 
+      //   .catch(err => console.log(err))
+      // },
       // maMethode() {
       //   alert('Hello')
       // },
@@ -110,6 +120,7 @@
       // )
     },
     computed: {
+        ...mapGetters(['todosLength']),
       // adresse() {
       //   return `${this.numero}, ${this.rue} ${this.ville}`;
       // }

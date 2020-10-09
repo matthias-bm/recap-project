@@ -1,16 +1,22 @@
 <template>
   <div>
-    <mon-composant></mon-composant>
+    <router-view></router-view>
+    <!-- <router-link to="/Comp1">Accueil</router-link> -->
   </div>
 </template>
 
 <script>
-  import MonComposant from '@/components/mon-composant'
 
   export default {
     name: 'App',
     components: {
-      MonComposant
+    },
+    created() {
+      // axios.get(URL)
+      // .then( res => { console.log(res);
+      //   this.users = res.data;
+      // })
+      // .catch( err => console.log(err));
     }
   }
 </script>
