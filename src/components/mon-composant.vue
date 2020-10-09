@@ -48,9 +48,11 @@
   </transition>
 
   <form @submit.prevent="trySubmit">
-  </form>-->
+  </form>
 
-  <div>{{ todosLength }}</div>
+  <div>{{ todosLength }}</div>-->
+
+  <button @click="incrementer(parametre)">Incrementer</button>
 
   </div>
 </template>
@@ -61,7 +63,7 @@
   // import VueResource from 'vue-resource'
   // import axios from 'axios'
   // Vue.use(VueResource);
-  import {mapGetters} from 'vuex'
+  import {mapGetters, mapMutations} from 'vuex'
 
   export default {
     name: 'mon-composant',
@@ -81,6 +83,7 @@
       // number: 0
     }),
     methods: {
+      ...mapMutations(['incrementer'])
       // changePage() {
       //   this.$router.go(1) // naviguer vers l'URL suivante
       //   this.$router.go(-1) // naviguer vers l'URL précédente
